@@ -33,7 +33,7 @@ export const signup=async(req,res)=>
     }
     catch(error){
         console.log(error)
-        res.status(500).json({success:false,message:'error',})
+        res.status(500).json({success:false,message:error.message,})
        
     }
 }
@@ -68,7 +68,7 @@ export const login = async (req, res) => {
         if (user.password !== password) {
             return res.status(401).json({
                 success: false,
-                message: "Incorrect password"
+                message: "username or password not match"
             });
         }
 
